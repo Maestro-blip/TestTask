@@ -27,15 +27,20 @@ class users{
 
         }catch(err){
             console.error(err);
-            res.status(501).send("Error")
+            res.status(500).send("Register")
         }
     }
     static async login(req,res){
         try{
             const { name, email, password } = req.body;
-
+            const roles = ['User','Admin']
             const user = await userModels.getByEmail(email)
-
+            let isAdmin = user.is_admin;
+            
+                if(isAdmin == 'yes')
+                    isAdmin = true
+                else
+                    isAdmin = false
             if(!user)
                 return res.status(400).send("This email doesnot exist")
 
@@ -45,8 +50,8 @@ class users{
                 return res.status(400).send("This password is not valid");
 
             const key = jwt.sign({
-                userID: user.id,
-                role: "User"
+                userID: user.user_id,
+                role: isAdmin ? roles[1] : roles[0]
             },process.env.jwtSecret)
 
             return res.json(key)
@@ -54,7 +59,7 @@ class users{
 
         }catch(err){
             console.error(err);
-            res.status(501)
+            res.status(500).send("Login error")
         }
     }
 
