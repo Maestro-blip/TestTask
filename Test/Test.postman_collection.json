@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "7fe9052b-f9e5-4b76-8395-d32dbd7da8db",
+		"name": "TestTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50325742",
+		"_collection_link": "https://volodimirkucak996-6224660.postman.co/workspace/Volodimir-Kucak's-Workspace~dbdc3dc3-ccaa-4081-8586-5f3aaed09e15/collection/50325742-7fe9052b-f9e5-4b76-8395-d32dbd7da8db?action=share&source=collection_link&creator=50325742"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVXNlciIsImlhdCI6MTc2NjQ4NzE2Mn0.n1MnMDS3B8haIps1znhj7L7AmkKno1bn_l2v1SnS4Vw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"volodymyr\",\n    \"email\": \"volodymyr@gmail.com\",\n    \"password\": \"424324243\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"volodymyr\",\n    \"email\": \"pdsdsdsd@.com\",\n    \"password\": \"424324243\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Appoint",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVXNlciIsImlhdCI6MTc2NjQ4NzE2Mn0.n1MnMDS3B8haIps1znhj7L7AmkKno1bn_l2v1SnS4Vw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Test\",\n    \"description\":\"Test appoint\",\n    \"date\":\"2025-24-12\",\n    \"duration\":\"60\",\n    \"status\":\"scheduled\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/appointments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVXNlciIsImlhdCI6MTc2NjQ4NzE2Mn0.n1MnMDS3B8haIps1znhj7L7AmkKno1bn_l2v1SnS4Vw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Test\",\n    \"description\":\"Test appoint\",\n    \"date\":\"2025-24-12\",\n    \"duration\":\"60\",\n    \"status\":\"scheduled\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/appointments/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReadByID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteByID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
