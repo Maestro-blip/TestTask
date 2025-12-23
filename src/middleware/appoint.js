@@ -10,7 +10,10 @@ const validate = ajv.compile(appointSchema)
 const valid = validate(req.body)
     if(!valid){
         console.log(validate.errors)
-        return res.status(400).send('bed data')
+        return res.status(400).json({
+            stasus: 400,
+            message: "Invalid parametrs"
+        })
 }
 
 next()
