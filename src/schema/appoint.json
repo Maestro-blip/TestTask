@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+    "title": { "type": "string", "minLength": 4},
+    "description": { "type": "string","minLength": 4 },
+    "date": { "type": "string"},
+    "duration":{"type":"integer","minimum": 0},
+    "status":{ "type":"string", "enum" : ["scheduled","canceled"]}
+    },
+    "required": [ 
+        "title", "date","duration","status"]
+}
